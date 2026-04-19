@@ -1,4 +1,4 @@
-Teil 1: Inhaltliche Abgabe
+#Teil 1: Inhaltliche Abgabe
 1. Executive Summary
 Dieses Projekt analysiert die aktuellen Google Trends Suchdaten für die Kategorie Supplements in Deutschland über den Zeitraum der letzten dreißig Tage. Das Hauptziel der Analyse bestand darin, das relative Suchinteresse an klassischen Sport-Nahrungsergänzungsmitteln wie Proteinpulver, Whey Protein und Kreatin mit allgemeinen Gesundheits-Supplements wie Vitamin D und Magnesium zu vergleichen. Die zentralen Erkenntnisse zeigen eine deutliche Verschiebung des Interesses hin zu allgemeinen Mikronährstoffen. Insbesondere der Begriff Magnesium weist den stärksten, ansteigenden Trend sowie das höchste durchschnittliche Suchvolumen auf. Im Gegensatz dazu verzeichnen etablierte Sport-Supplements wie Whey Protein und saisonal abhängige Produkte wie Vitamin D im untersuchten Zeitraum einen eher rückläufigen Trend, obwohl Vitamin D kurzfristig sehr hohe Such-Peaks erreichte.
 
