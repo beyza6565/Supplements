@@ -1,0 +1,22 @@
+services:
+  data-service:
+    build:
+      context: .
+      dockerfile: data-service/Dockerfile
+    ports:
+      - "8000:8000"
+
+  ai-service:
+    build:
+      context: .
+      dockerfile: ai-service/Dockerfile
+    ports:
+      - "8001:8001"
+    environment:
+      # Hier sagen wir dem AI-Service, wo er den Data-Service in Docker findet!
+      - DATA_SERVICE_URL=http://data-service:8000/metrics
+    env_file:
+      # Hier laden wir deinen geheimen Deepseek-Key sicher in den Container
+      - ai-service/.env
+    depends_on:
+      - data-service
