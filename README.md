@@ -1,21 +1,96 @@
-#Teil 1: Inhaltliche Abgabe
-1. Executive Summary
-Dieses Projekt analysiert die aktuellen Google Trends Suchdaten für die Kategorie Supplements in Deutschland über den Zeitraum der letzten dreißig Tage. Das Hauptziel der Analyse bestand darin, das relative Suchinteresse an klassischen Sport-Nahrungsergänzungsmitteln wie Proteinpulver, Whey Protein und Kreatin mit allgemeinen Gesundheits-Supplements wie Vitamin D und Magnesium zu vergleichen. Die zentralen Erkenntnisse zeigen eine deutliche Verschiebung des Interesses hin zu allgemeinen Mikronährstoffen. Insbesondere der Begriff Magnesium weist den stärksten, ansteigenden Trend sowie das höchste durchschnittliche Suchvolumen auf. Im Gegensatz dazu verzeichnen etablierte Sport-Supplements wie Whey Protein und saisonal abhängige Produkte wie Vitamin D im untersuchten Zeitraum einen eher rückläufigen Trend, obwohl Vitamin D kurzfristig sehr hohe Such-Peaks erreichte.
+# Supplements Trends Analyse – Google Trends Dashboard
 
-2. Ziele des Projekts
-Das vorrangige Ziel dieses Projekts ist es, datenbasierte Erkenntnisse über das aktuelle Konsum- und Suchverhalten im Bereich der Nahrungsergänzungsmittel zu gewinnen. Im Kontext von Google Trends wird die konkrete Fragestellung untersucht, ob das Interesse an spezifischen Sport-Supplementierungen zugunsten von präventiven Gesundheits-Supplements abnimmt. Oftmals basieren Marketingentscheidungen in der Fitnessbranche auf reinen Bauchgefühlen oder veralteten Erfahrungswerten. Durch die automatisierte Erfassung, Bereinigung und KI-gestützte Interpretation der Zeitreihendaten löst dieses Projekt das Problem der manuellen und fehleranfälligen Marktanalyse. Es liefert Unternehmen oder Content-Erstellern eine fundierte, objektive Datengrundlage, um Trends frühzeitig zu erkennen und beispielsweise Werbekampagnen oder Produktplatzierungen präzise an das aktuelle Suchverhalten der Nutzerinnen und Nutzer anzupassen.
+## 1. Executive Summary
 
-3. Anwendung und Nutzung
-Die Anwendung wurde so konzipiert, dass sie mit minimalem Konfigurationsaufwand direkt in einer containerisierten Umgebung gestartet werden kann. Nutzerinnen und Nutzer klonen zunächst das GitHub-Repository auf ihren lokalen Rechner und navigieren in das Hauptverzeichnis des Projekts. Anschließend wird die gesamte Architektur durch die Eingabe des Befehls "docker compose up --build -d" im Terminal hochgefahren, wodurch der Data-Service und der AI-Service nahtlos miteinander verknüpft werden. Alternativ kann das System über die mitgelieferten Konfigurationsdateien im "k8s"-Ordner mit dem Befehl "kubectl apply -f k8s/" in einen Kubernetes-Cluster deployt werden. Nach dem Start können die Ergebnisse über den Webbrowser unter "localhost:8001/analyze" als JSON abgerufen werden. Potenzielle Nutzerinnen und Nutzer sind Analysten, Betreiber von Fitness-Shops, Marketing-Agenturen oder Ernährungsberater, die datengetriebene Empfehlungen für ihr Sortiment oder ihre Kundenkommunikation benötigen.
+Dieses Projekt analysiert die aktuellen Google Trends Suchdaten für die Kategorie Supplements
+in Deutschland über den Zeitraum der letzten dreißig Tage.
+Das Hauptziel der Analyse bestand darin, das relative Suchinteresse an klassischen
+Sport-Nahrungsergänzungsmitteln wie Proteinpulver, Whey Protein und Kreatin mit allgemeinen
+Gesundheits-Supplements wie Vitamin D und Magnesium zu vergleichen.
+Die zentralen Erkenntnisse zeigen eine deutliche Verschiebung des Interesses hin zu Mikronährstoffen.
+Insbesondere Magnesium weist den stärksten steigenden Trend sowie das höchste Suchvolumen auf.
+Im Gegensatz dazu verzeichnen Whey Protein und Vitamin D einen eher rückläufigen Trend,
+obwohl Vitamin D kurzfristig sehr hohe Such-Peaks erreichte.
 
-4. Datenanalyse und Ergebnisse
-Die Auswertung der Zeitreihendaten offenbarte überraschend deutliche Muster und Entwicklungen im Suchverhalten der deutschen Bevölkerung. Es zeigte sich, dass Magnesium mit einem Durchschnittswert von über achtundachtzig und einem absoluten Peak von einhundert das dominierende Supplement des Monats ist. Vitamin D erreichte zwar ebenfalls signifikante Peaks von bis zu achtundsiebzig, verzeichnete jedoch über den gesamten Zeitraum einen fallenden Trend, was stark auf saisonale Wetterbedingungen und das beginnende Frühjahr hindeuten könnte. Die klassischen Sport-Begriffe wie Kreatin, Proteinpulver und Whey Protein bewegen sich auf einem deutlich niedrigeren, aber konstanteren Suchniveau. Besonders auffällig ist hierbei der Kontrast zwischen "Whey Protein" und dem allgemeineren Begriff "Proteinpulver". Während Whey Protein sinkt, steigt das Suchinteresse nach Proteinpulver und Kreatin leicht an, was auf eine Veränderung in der Suchsprache der Konsumenten schließen lässt.
+## 2. Ziele des Projekts
 
-5. Visualisierung
-Um die komplexen JSON-Daten greifbarer und intuitiver zu machen, wurden zwei spezifische Visualisierungsformen gewählt. Zum einen wurde ein klassisches Liniendiagramm (Line Chart) erstellt, welches den zeitlichen Verlauf aller fünf Suchbegriffe über die dreißig Tage hinweg auf einer gemeinsamen Zeitachse darstellt. Diese Darstellung ist essenziell, um kurzfristige Peaks und saisonale Einbrüche, wie etwa beim Vitamin D, auf einen Blick zu identifizieren. Zum anderen wurde ein vergleichendes Balkendiagramm für das durchschnittliche Suchinteresse generiert, welches die Hierarchie der Begriffe klar strukturiert. Diese Visualisierungen helfen enorm dabei, die von der Künstlichen Intelligenz getroffenen Aussagen visuell zu validieren und auch Personen ohne technischen Hintergrund oder Datenexpertise sofort verständlich zu machen, welche Nahrungsergänzungsmittel aktuell den Markt dominieren.
+Das vorrangige Ziel dieses Projekts ist es, datenbasierte Erkenntnisse über das aktuelle
+Konsum- und Suchverhalten im Bereich der Nahrungsergänzungsmittel zu gewinnen.
+Im Kontext von Google Trends wird untersucht, ob das Interesse an Sport-Supplements
+zugunsten von präventiven Gesundheits-Supplements abnimmt.
+Oftmals basieren Marketingentscheidungen in der Fitnessbranche auf reinen Bauchgefühlen
+oder veralteten Erfahrungswerten.
+Durch die automatisierte Erfassung, Bereinigung und KI-gestützte Interpretation der
+Zeitreihendaten löst dieses Projekt das Problem der manuellen und fehleranfälligen Marktanalyse.
+Es liefert Unternehmen oder Content-Erstellern eine fundierte, objektive Datengrundlage,
+um Trends frühzeitig zu erkennen und Werbekampagnen präzise anzupassen.
 
-6. Herausforderungen und Learnings
-Während der Entwicklung traten insbesondere bei der automatisierten Datenbereinigung und der Orchestrierung der Services technische Hürden auf. Die von Google Trends exportierten CSV-Dateien enthielten am Anfang Metadaten sowie nicht-numerische Zeichenketten wie "<1", welche zunächst zu Programmabbrüchen beim Parsen führten. Dieses Problem wurde durch eine robuste Python-Logik gelöst, welche die Startzeile der echten Daten dynamisch sucht und Sonderzeichen in Nullen konvertiert. Fachlich herausfordernd war zudem die reibungslose Kommunikation der Docker-Container untereinander, welche durch geschicktes Umleiten von Umgebungsvariablen und Netzwerknamen in der Docker-Compose-Datei bewältigt wurde. Aus dem Projekt konnte ich tiefgreifende praktische Erfahrungen in der Automatisierung von Datenflüssen, dem Umgang mit großen Sprachmodellen als Interpretationsschicht sowie dem professionellen Deployment von Microservices über Kubernetes ziehen.
+## 3. Anwendung und Nutzung
 
-7. Zukunftsvision
-In einer zukünftigen Version des Systems könnte der statische CSV-Import durch eine direkte Live-Schnittstelle (API) zu Trend-Datenbanken ersetzt werden, um Analysen in echter Echtzeit zu ermöglichen. Zudem wäre die Erweiterung der Datenbasis um zusätzliche Dimensionen, wie etwa demografische Merkmale oder geografische Unterschiede auf Bundeslandebene, von großem Mehrwert. Auf technologischer Seite ließe sich ein benutzerfreundliches Frontend (beispielsweise mit React oder Streamlit) integrieren, sodass Anwender nicht mehr die rohen JSON-Ausgaben im Browser lesen müssen, sondern ein interaktives Dashboard zur Verfügung haben. Im Bereich der Künstlichen Intelligenz könnten erweiterte Prompting-Techniken oder spezialisierte Fine-Tuning-Modelle genutzt werden, um nicht nur deskriptive Analysen zu liefern, sondern auch direkt umsetzbare Social-Media-Beiträge oder Werbetexte für die identifizierten Trend-Produkte generieren zu lassen.
+Die Anwendung wurde so konzipiert, dass sie mit minimalem Konfigurationsaufwand
+direkt in einer containerisierten Umgebung gestartet werden kann.
+Zunächst wird das GitHub-Repository auf den lokalen Rechner geklont und eine
+`.env` Datei im Root-Ordner mit dem API-Key angelegt.
+Anschließend wird die gesamte Architektur mit folgendem Befehl hochgefahren:
+
+\`\`\`bash
+docker compose up --build -d
+\`\`\`
+
+Alternativ kann das System über den `k8s/` Ordner in Kubernetes deployt werden:
+
+\`\`\`bash
+kubectl apply -f k8s/
+kubectl port-forward service/ai-service 8001:8000
+\`\`\`
+
+Nach dem Start sind die Ergebnisse unter `http://localhost:8001/analyze` abrufbar.
+Potenzielle Nutzer sind Analysten, Fitness-Shop-Betreiber und Marketing-Agenturen,
+die datengetriebene Empfehlungen für ihr Sortiment benötigen.
+
+## 4. Datenanalyse und Ergebnisse
+
+Die Auswertung der Zeitreihendaten offenbarte überraschend deutliche Muster im Suchverhalten.
+Magnesium dominiert mit einem Durchschnittswert von über 88 und einem Peak von 100.
+Vitamin D erreichte zwar signifikante Peaks von bis zu 78, verzeichnete jedoch einen fallenden Trend,
+was auf saisonale Effekte und das beginnende Frühjahr hindeuten könnte.
+Die Sport-Begriffe Kreatin, Proteinpulver und Whey Protein bewegen sich auf niedrigerem Niveau.
+Besonders auffällig ist der Kontrast zwischen Whey Protein (sinkend) und Proteinpulver (steigend),
+was auf eine Veränderung in der Suchsprache der Konsumenten hindeutet.
+Der steigende Trend bei Kreatin und Proteinpulver deutet auf wachsendes Fitness-Interesse hin.
+
+## 5. Visualisierung
+
+Um die Daten greifbarer zu machen, wurden zwei spezifische Visualisierungsformen gewählt.
+Zum einen wurde ein Liniendiagramm erstellt, das den zeitlichen Verlauf aller fünf Suchbegriffe
+über dreißig Tage auf einer gemeinsamen Zeitachse darstellt.
+Diese Darstellung ist essenziell, um kurzfristige Peaks und saisonale Einbrüche zu identifizieren.
+Zum anderen wurde ein Balkendiagramm für das durchschnittliche Suchinteresse generiert,
+das die Hierarchie der Begriffe klar und vergleichbar strukturiert.
+Beide Visualisierungen helfen dabei, die KI-Aussagen visuell zu validieren
+und auch Personen ohne Datenexpertise die Marktsituation sofort verständlich zu machen.
+
+## 6. Herausforderungen und Learnings
+
+Während der Entwicklung traten insbesondere bei der Datenbereinigung technische Hürden auf.
+Die von Google Trends exportierten CSV-Dateien enthielten Metadaten sowie nicht-numerische
+Zeichenketten wie `<1`, welche zunächst zu Programmabbrüchen beim Parsen führten.
+Dieses Problem wurde durch eine robuste Python-Logik gelöst, die Sonderzeichen in Nullen konvertiert.
+Fachlich herausfordernd war die reibungslose Kommunikation der Docker-Container untereinander,
+gelöst durch Service-Namen statt localhost in der Docker-Compose-Konfiguration.
+In Kubernetes musste verstanden werden, dass Pods flüchtig sind und Kommunikation
+ausschließlich über stabile Service-Namen und internes DNS erfolgt.
+Das wichtigste Learning war die strikte Trennung der Services für Wartbarkeit und Skalierbarkeit.
+
+## 7. Zukunftsvision
+
+In einer zukünftigen Version könnte der statische CSV-Import durch eine Live-Schnittstelle
+zu Trend-Datenbanken ersetzt werden, um Analysen in echter Echtzeit zu ermöglichen.
+Die Datenbasis könnte um demografische Merkmale oder geografische Unterschiede
+auf Bundeslandebene erweitert werden.
+Ein benutzerfreundliches Frontend mit React oder Streamlit würde interaktive Dashboards
+ermöglichen, sodass Nutzer nicht mehr rohe JSON-Ausgaben lesen müssen.
+Im Bereich KI könnten spezialisierte Modelle nicht nur deskriptive Analysen liefern,
+sondern direkt umsetzbare Social-Media-Beiträge für Trend-Produkte generieren.
+Eine CI/CD-Pipeline mit GitHub Actions könnte den gesamten Deployment-Prozess automatisieren
+und den manuellen Aufwand vollständig eliminieren.
