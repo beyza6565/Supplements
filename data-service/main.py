@@ -72,3 +72,12 @@ def get_metrics():
         return {"terms": results}
     except Exception as e:
         return {"error": str(e)}
+
+@app.get("/live")
+def live():
+    return {"status": "alive"}
+
+
+@app.get("/ready")
+def ready():
+    return {"status": "ready"}

@@ -3,3 +3,6 @@
 /workspace.xml
 # Editor-based HTTP Client requests
 /httpRequests/
+.env
+ai-service/.env
+k8s/ai-api-secret.yaml
